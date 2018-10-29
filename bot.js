@@ -20,9 +20,9 @@ client.on('message' , message => {
     let player2_id = array_of_mentions[random2].id;
     var turn_id = player1_id;
     var symbol = symbols[0];
-    let initial_message = `Game match between <@${player1_id}> and <@${player2_id}>!`;
+    let initial_message = `اللعبة بين اللاعبين التاليين <@${player1_id}> and <@${player2_id}>!`;
     if (player1_id == player2_id) {
-      initial_message += '\n_(What a loser, playing this game with yourself :joy:)_'
+      initial_message += '\n_(لقد خسرت, العب مع نفسك :joy:)_'
     }
     message.channel.send(`Xo ${initial_message}`)
     .then(console.log("Successful tictactoe introduction"))
@@ -47,7 +47,7 @@ client.on('message' , message => {
       await new_message.react('8⃣');
       await new_message.react('9⃣');
       await new_message.react('🆗');
-      await new_message.edit(`It\'s <@${turn_id}>\'s turn! Your symbol is ${symbol}`)
+      await new_message.edit(`It\'s <@${turn_id}>\'s اشتغل! الرمز هو ${symbol}`)
       .then((new_new_message) => {
         require('./xo.js')(client, message, new_new_message, player1_id, player2_id, turn_id, symbol, symbols, grid_message);
       })
@@ -58,7 +58,7 @@ client.on('message' , message => {
     .catch(console.error);
   }
   else {
-    message.channel.send(`try *xo @uesr`)
+    message.channel.send(`جرب *xo @uesr`)
     .then(console.log("Successful error reply"))
     .catch(console.error);
   }
